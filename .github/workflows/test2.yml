@@ -37,11 +37,12 @@ jobs:
         run: |
           .\python\python.exe .\get-pip.py
           ls .\python\
+          .\python\python.exe -m pip -V
       - name: Test pip
         run: |
           .\python\python.exe -m pip install requests
           ls .\python\Lib\
-          .\python.exe -c "import requests; print(requests.__version__)"
+          .\python\python.exe -c "import requests; print(requests.__version__)"
           .\python\python.exe -m pip uninstall -y requests
 
           
