@@ -24,13 +24,18 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Download embeddable python
+      - name: Download embeddable python and get-pip.py
         run: |
           Invoke-WebRequest https://www.python.org/ftp/python/3.8.9/python-3.8.9-embed-amd64.zip -OutFile .\python.zip
           Invoke-WebRequest https://bootstrap.pypa.io/get-pip.py -OutFile .\get-pip.py
-          ls .
+          ls .\
+      - name: Extract embeddable python
           Expand-Archive -Path .\python.zip -DestinationPath .\python
           ls .\python
+      - name: Execute get-pip.py
+          .\python\python.exe .\get-pip.py
+          ls .\python
+          
           
           
           
