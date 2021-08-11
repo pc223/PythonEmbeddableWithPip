@@ -37,6 +37,7 @@ jobs:
         run: |
           .\python\python.exe .\get-pip.py
           ls .\python\
+          Add-Content .\python\python38._pth "`r`nimport site"
           .\python\python.exe -m pip -V
       - name: Test pip
         run: |
