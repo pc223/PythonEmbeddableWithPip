@@ -8,7 +8,7 @@ import requests
 
 
 r = requests.get('https://google.com')
-print(r.title)
+print(r.text[:100])
 
 import urllib.request
 
