@@ -46,7 +46,13 @@ jobs:
           ls .\python\Lib\site-packages\
           .\python\python.exe -c "import requests; print(requests.get('https://github.com').text[:300])"
           .\python\python.exe -m pip uninstall -y requests
-
-          
+      - name: Create zip file
+        run: |
+          Compress-Archive -Path .\python -DestinationPath .\EmbeddablePythonWithPip.zip
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            .\EmbeddablePythonWithPip.zip
           
           
