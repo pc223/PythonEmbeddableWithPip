@@ -48,7 +48,7 @@ jobs:
           Compress-Archive -Path .\python -DestinationPath .\EmbeddablePythonWithPip.zip
       - name: Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+        # if: startsWith(github.ref, 'refs/tags/v')
         with:
           files: |
             .\EmbeddablePythonWithPip.zip
