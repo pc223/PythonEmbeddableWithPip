@@ -30,9 +30,11 @@ jobs:
           Invoke-WebRequest https://bootstrap.pypa.io/get-pip.py -OutFile .\get-pip.py
           ls .\
       - name: Extract embeddable python
+        run: |
           Expand-Archive -Path .\python.zip -DestinationPath .\python
           ls .\python
       - name: Execute get-pip.py
+        run: |
           .\python\python.exe .\get-pip.py
           ls .\python
           
