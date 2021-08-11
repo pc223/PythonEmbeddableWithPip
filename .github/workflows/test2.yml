@@ -43,7 +43,7 @@ jobs:
       - name: Test pip
         run: |
           .\python\python.exe -m pip install requests
-          ls .\python\Lib\
+          ls .\python\Lib\site-packages\
           .\python\python.exe -c "import requests; print(requests.__version__)"
           .\python\python.exe -m pip uninstall -y requests
 
